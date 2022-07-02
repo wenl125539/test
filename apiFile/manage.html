@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api接口文档管理</title>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/manage.css">
+    <script type="text/javascript" src="layui/layui.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="big-box">
+        <div class="top">
+            <div class="layui-anim-scaleSpring layui-anim title">接口文档(API)管理</div>
+            <button class="layui-btn layui-btn-normal btn"><a href="/apiFile/index.html">API</a></button>
+        </div>
+        <div class="layui-anim-scaleSpring  layui-anim divfrom">
+            <form class="layui-form" action="" lay-filter="example">
+                <div class="layui-form-item apiType">
+                    <label class="layui-form-label ">API类型</label>
+                    <div class="layui-input-block">
+                        <select name="type" lay-verify="required">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">api路径</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="apiName" required lay-verify="required" placeholder="输入api如（/api/user}）" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="width: 500px;">
+                    <label class="layui-form-label">api说明</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="explain" required placeholder="如（用户信息）" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item parameter">
+                    <p class="layui-form-label">参数信息</p>
+                    <div class="layui-input-block box">
+                        <table class="layui-table">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>参数名</th>
+                                    <th>类型</th>
+                                    <th>要求</th>
+                                    <th>
+                                        <div id="delete"><i class="layui-icon  layui-icon-delete delete"></i>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataInfo">
+                                <tr>
+                                    <td><input type="text" name="dataName" placeholder="如（id）" autocomplete="off" class="layui-input">
+                                    </td>
+                                    <td><input type="text" name="dataType" placeholder="如（int）" autocomplete="off" class="layui-input">
+                                    </td>
+                                    <td><input type="text" name="analyzing" placeholder="如（不能为空）" autocomplete="off" class="layui-input">
+                                    </td>
+                                    <td class="layui-table-col-special">
+                                        <div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-checkbox">
+                                            <input class="checkbox" type="checkbox" name="layTableCheckbox" lay-skin="primary">
+                                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon layui-icon-ok"></i></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="add-div">
+                        <i class="layui-icon layui-icon-addition" style="font-size: 25px; color: #1E9FFF;"></i>
+
+                    </div>
+                </div>
+                <div class="layui-form-item ">
+                    <p class="layui-form-label">接口返回</p>
+                    <div class="layui-input-block">
+                        <div>
+
+                        </div>
+                        <div class="layui-card card">
+                            <div class="layui-card-header div-btn">
+                                <button type="button" class="layui-btn layui-btn-primary layui-btn-sm"><i
+                                        class="layui-icon layui-icon-edit"></i></button>
+                                <button type="button" class="layui-btn layui-btn-primary layui-btn-sm"><i
+                                        class="layui-icon layui-icon-list"></i></button>
+                                <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="deleteStr"><i
+                                        class="layui-icon  layui-icon-delete delete2"></i></button>
+                            </div>
+                            <div class="layui-card-body addDeletion" id="adds">
+
+                            </div>
+                        </div>
+                        <!-- <ul class="list">
+                            <li>  
+                              
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+
+                        <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-getval"><i
+                                class="layui-icon layui-icon-loading  layui-anim-rotate layui-anim-loop loading "
+                                style="font-size: 20px; color: #FFF;"></i>
+                            提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">@xiaohei</div>
+</body>
+
+<script type="text/javascript" src="js/manage.js"></script>
+<!-- 导入自己封装的 baseAPI.js -->
+<script src="js/baseAPI.js"></script>
+
+</html>
